@@ -1,0 +1,838 @@
+/* =============================
+KONSEP: WARUNG RENTAL PS SUNGGUHAN
+Fokus: jelas, tegas, laku
+============================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #111;
+}
+
+/* === LAYOUT UTAMA === */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === HEADER TOKO (LOGO + NAVIGASI) === */
+.header {
+  background: linear-gradient(90deg, #0f172a, #111827);
+  color: #ffffff;
+  padding: 24px 20px;
+  /* border-bottom: 5px solid #facc15; */
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.header-left h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 14px;
+}
+
+.nav a {
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.nav a:hover {
+  background: rgba(250, 204, 21, 0.15);
+  color: #facc15;
+}
+
+.nav a.active {
+  background: #facc15;
+  color: #111827;
+}
+
+/* === HERO FULLSCREEN === */
+.hero {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/hero-ps.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 5rem;
+  padding: 0 10px;
+}
+
+.hero h2 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.hero p {
+  margin-top: 16px;
+  font-size: 1.1rem;
+  max-width: 520px;
+  color: #e5e7eb;
+}
+
+.hero .hero-btn {
+  margin-top: 28px;
+  display: inline-block;
+  background: #facc15;
+  color: #111827;
+  padding: 14px 24px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.hero .hero-btn:hover {
+  background: #fde047;
+}
+
+/* === MAIN === */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* === GRID UNIT PS4 === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* === CARD UNIT PS4 === */
+.ps4-card {
+  background: #ffffff;
+  border: 2px solid #111827;
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.ps4-card.disabled {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.ps4-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.ps4-card .game {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.ps4-card .price {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* === STATUS === */
+.badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.available {
+  background: #16a34a;
+  color: #fff;
+}
+
+.rented {
+  background: #dc2626;
+  color: #fff;
+}
+
+/* === FORM SEWA === */
+.sewa-section {
+  margin-top: 25px;
+  background: #ffffff;
+  border: 2px solid #111827;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.sewa-section h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.sewa-section label {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.sewa-section input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border: 2px solid #111827;
+  border-radius: 6px;
+}
+
+/* === TOMBOL === */
+.btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #facc15;
+  border: 2px solid #111827;
+  border-radius: 8px;
+  cursor: pointer;
+} /* =============================
+KONSEP: WARUNG RENTAL PS SUNGGUHAN
+Fokus: jelas, tegas, laku
+============================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #111;
+}
+
+/* === LAYOUT UTAMA === */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === HEADER TOKO (LOGO + NAVIGASI) === */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.85),
+    rgba(15, 23, 42, 0.4),
+    rgba(15, 23, 42, 0)
+  );
+  color: #ffffff;
+  padding: 20px;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.header-left h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 14px;
+}
+
+.nav a {
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.nav a:hover {
+  background: rgba(250, 204, 21, 0.15);
+  color: #facc15;
+}
+
+.nav a.active {
+  background: #facc15;
+  color: #111827;
+}
+
+/* === HERO FULLSCREEN === */
+.hero {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)), url('/hero-ps.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+}
+
+/* .hero-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+} */
+
+.hero h2 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.hero p {
+  margin-top: 16px;
+  font-size: 1.1rem;
+  max-width: 520px;
+  color: #e5e7eb;
+}
+
+.hero .hero-btn {
+  margin-top: 28px;
+  display: inline-block;
+  background: #facc15;
+  color: #111827;
+  padding: 14px 24px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.hero .hero-btn:hover {
+  background: #fde047;
+}
+
+/* === MAIN === */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* === GRID UNIT PS4 === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* === CARD UNIT PS4 === */
+.ps4-card {
+  background: #ffffff;
+  border: 2px solid #111827;
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.ps4-card.disabled {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.ps4-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.ps4-card .game {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.ps4-card .price {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* === STATUS === */
+.badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.available {
+  background: #16a34a;
+  color: #fff;
+}
+
+.rented {
+  background: #dc2626;
+  color: #fff;
+}
+
+/* === FORM SEWA === */
+.sewa-section {
+  margin-top: 25px;
+  background: #ffffff;
+  border: 2px solid #111827;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.sewa-section h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.sewa-section label {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.sewa-section input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border: 2px solid #111827;
+  border-radius: 6px;
+}
+
+/* === TOMBOL === */
+.btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #facc15;
+  border: 2px solid #111827;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #fde047;
+}
+
+.btn:hover {
+  background: #fde047;
+}
+
+.unit-section {
+  padding: 80px 20px;
+  background: #0f172a;
+  color: white;
+}
+
+.unit-section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+.unit-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.unit-card {
+  background: #111827;
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid #1f2933;
+}
+
+.unit-card h3 {
+  margin-bottom: 10px;
+}
+
+.unit-card ul {
+  padding-left: 18px;
+  margin-bottom: 12px;
+  color: #d1d5db;
+}
+
+.price {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.status.ready {
+  background: #22c55e;
+  color: #052e16;
+}
+
+.status.busy {
+  background: #ef4444;
+  color: #450a0a;
+}
+
+.unit-card button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.unit-card button:disabled {
+  background: #374151;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.unit-card button:not(:disabled) {
+  background: #facc15;
+  color: #111827;
+}
+.unit-section {
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, #020617, #0f172a);
+  color: white;
+}
+
+.unit-section h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.unit-section .subtitle {
+  text-align: center;
+  color: #9ca3af;
+  margin-bottom: 60px;
+}
+
+.unit-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.unit-card {
+  background: linear-gradient(180deg, #111827, #020617);
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.unit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.unit-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.unit-card ul {
+  margin: 12px 0 16px;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.status.ready {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+
+.status.busy {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.unit-card button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.unit-card button:not(:disabled) {
+  background: linear-gradient(90deg, #facc15, #fde047);
+  color: #111827;
+}
+
+.unit-card button:disabled {
+  background: #1f2937;
+  color: #6b7280;
+}
+
+.unit-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+
+.detail-btn {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #374151;
+  background: transparent;
+  color: #e5e7eb;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.detail-box {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  color: #d1d5db;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #020617;
+  color: white;
+  width: 90%;
+  max-width: 520px;
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.modal-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+.modal h2 {
+  margin-bottom: 8px;
+}
+
+.modal h4 {
+  margin-top: 16px;
+}
+
+.modal ul {
+  margin-left: 18px;
+  margin-bottom: 16px;
+}
+
+.modal-sewa {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-weight: bold;
+  background: linear-gradient(90deg, #facc15, #fde047);
+  color: #111827;
+}
+
+/* === ANIMASI POPUP === */
+.modal-overlay {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-animate {
+  animation: zoomIn 0.35s ease forwards;
+  transform-origin: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* === ANIMASI KELUAR POPUP === */
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+.zoom-out {
+  animation: zoomOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+}
