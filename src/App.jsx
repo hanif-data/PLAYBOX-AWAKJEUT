@@ -101,7 +101,7 @@ function App() {
         <div className="header-inner">
           {/* KIRI: LOGO + NAMA */}
           <div className="header-left">
-            <img src="public/logo_ps.jpg" alt="Logo Rental PS4" className="logo-img" />
+            <img src="/public/logo_ps.jpg" alt="Logo Rental PS4" className="logo-img" />
             <h1>PLAYBOX AWAKJEUT</h1>
           </div>
 
